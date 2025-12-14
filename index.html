@@ -73,7 +73,7 @@
       gap: 12px;
     }
 
-    #startBtn, #playPauseBtn, #nextBtn {
+    #startBtn, #playPauseBtn, #nextBtn, .seekBtn {
       padding: 16px 22px;
       font-size: 16px;
       border-radius: 14px;
@@ -85,14 +85,25 @@
       transition: background 0.2s;
     }
 
-    #startBtn:hover, #playPauseBtn:hover, #nextBtn:hover {
+    #startBtn:hover, #playPauseBtn:hover, #nextBtn:hover, .seekBtn:hover {
       background: #ffffff;
       color: #0b0c10;
     }
 
-    #playPauseBtn, #nextBtn {
+    #playPauseBtn, #nextBtn, .seekBtn {
       padding: 12px 20px;
       font-size: 14px;
+    }
+
+    .seekBtn {
+      padding: 12px 16px;
+      background: #1f2833;
+      border: 1px solid rgba(255,255,255,.2);
+    }
+
+    .seekBtn:hover {
+      background: #45a29e;
+      color: #fff;
     }
 
     #nextBtn {
@@ -102,7 +113,7 @@
 
     #nextBtn:hover {
       background: #ffffff;
-      color: #fff;
+      color: #0b0c10;
     }
 
     #nextBtn:disabled {
@@ -188,11 +199,26 @@
       flex-wrap: wrap;
     }
 
+    .seekControls {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .timeDisplay {
+      font-size: 13px;
+      color: #66fcf1;
+      padding: 0 8px;
+      min-width: 80px;
+      text-align: center;
+    }
+
     .audioInfo {
       font-size: 13px;
       opacity: 0.6;
       margin-top: 8px;
       color: #c5c6c7;
+      width: 100%;
     }
 
     .resetBtn {
@@ -231,7 +257,7 @@
   <div class="wrap">
     <h1>Classical Listening Quiz</h1>
     <div style="font-size:12px;opacity:.7;">
-      Shortcuts: <b>N</b> next question • <b>R</b> reveal • <b>Space</b> play/pause • <b>1–6</b> answer
+      Shortcuts: <b>N</b> next • <b>R</b> reveal • <b>Space</b> play/pause • <b>←</b> -5s • <b>→</b> +5s • <b>1–6</b> answer
     </div>
   </div>
 </header>
@@ -250,9 +276,17 @@
 
       <div class="controls">
         <button id="playPauseBtn">▶ Play</button>
+        <div class="seekControls">
+          <button class="seekBtn" id="rewind5">« 5s</button>
+          <button class="seekBtn" id="rewind10">« 10s</button>
+          <div class="timeDisplay" id="timeDisplay">0:00 / 0:00</div>
+          <button class="seekBtn" id="forward10">10s »</button>
+          <button class="seekBtn" id="forward5">5s »</button>
+        </div>
         <button id="nextBtn" disabled>Next Question →</button>
-        <div class="audioInfo" id="audioInfo">Audio only - title hidden</div>
       </div>
+
+      <div class="audioInfo" id="audioInfo">Audio only - title hidden</div>
 
       <div class="options" id="options"></div>
       <div class="status" id="status"></div>
@@ -286,6 +320,7 @@
   let correct = 0;
   let streak = 0;
   let ytPlayer = null;
+  let timeUpdateInterval = null;
 
   const optionsEl = $("options");
   const statusEl = $("status");
@@ -294,6 +329,12 @@
   const playPauseBtn = $("playPauseBtn");
   const nextBtn = $("nextBtn");
   const resetBtn = $("resetBtn");
+  const timeDisplay = $("timeDisplay");
+
+  const rewind5Btn = $("rewind5");
+  const rewind10Btn = $("rewind10");
+  const forward5Btn = $("forward5");
+  const forward10Btn = $("forward10");
 
   const scorePill = $("scorePill");
   const streakPill = $("streakPill");
@@ -312,6 +353,37 @@
     return u.searchParams.get("v");
   }
 
+  function formatTime(seconds) {
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${mins}:${secs.toString().padStart(2, '0')}`;
+  }
+
+  function updateTimeDisplay() {
+    if (!ytPlayer || !ytPlayer.getCurrentTime) return;
+    
+    try {
+      const current = ytPlayer.getCurrentTime();
+      const duration = ytPlayer.getDuration();
+      timeDisplay.textContent = `${formatTime(current)} / ${formatTime(duration)}`;
+    } catch (e) {
+      // Player not ready yet
+    }
+  }
+
+  function seekVideo(seconds) {
+    if (!ytPlayer || !ytPlayer.getCurrentTime) return;
+    
+    try {
+      const currentTime = ytPlayer.getCurrentTime();
+      const newTime = Math.max(0, currentTime + seconds);
+      ytPlayer.seekTo(newTime, true);
+      updateTimeDisplay();
+    } catch (e) {
+      console.error('Seek error:', e);
+    }
+  }
+
   window.onYouTubeIframeAPIReady = function() {
     // API ready - will create player when needed
   };
@@ -319,6 +391,10 @@
   function loadVideo(videoId, startSeconds = 0) {
     if (ytPlayer) {
       ytPlayer.destroy();
+    }
+
+    if (timeUpdateInterval) {
+      clearInterval(timeUpdateInterval);
     }
 
     ytPlayer = new YT.Player('player', {
@@ -346,7 +422,8 @@
   }
 
   function onPlayerReady(event) {
-    // Player is ready
+    updateTimeDisplay();
+    timeUpdateInterval = setInterval(updateTimeDisplay, 500);
   }
 
   function onPlayerStateChange(event) {
@@ -498,6 +575,11 @@
     }
   };
 
+  rewind5Btn.onclick = () => seekVideo(-5);
+  rewind10Btn.onclick = () => seekVideo(-10);
+  forward5Btn.onclick = () => seekVideo(5);
+  forward10Btn.onclick = () => seekVideo(10);
+
   window.addEventListener("keydown", e => {
     if (e.key.toLowerCase() === "n") {
       if (!nextBtn.disabled) {
@@ -510,6 +592,14 @@
     if (e.key === " ") {
       e.preventDefault();
       togglePlayPause();
+    }
+    if (e.key === "ArrowLeft") {
+      e.preventDefault();
+      seekVideo(-5);
+    }
+    if (e.key === "ArrowRight") {
+      e.preventDefault();
+      seekVideo(5);
     }
     if (!locked && current && /^[1-6]$/.test(e.key)) {
       const btn = optionsEl.children[e.key - 1];
