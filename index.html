@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Classical Listening Quiz</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: #0b0c10;
+      color: #c5c6c7;
+    }
+
+    header {
+      padding: 16px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.02);
+    }
+
+    .wrap {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    h1 { margin: 0; font-size: 18px; color: #ffffff; }
+
+    .row {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 900px) {
+      .row { grid-template-columns: 1.3fr .7fr; }
+    }
+
+    .card {
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 14px;
+      padding: 14px;
+    }
+
+    .videoBox {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #000;
+    }
+
+    #player {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    #startOverlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.85);
+      z-index: 2;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    #startBtn, #playPauseBtn, #nextBtn {
+      padding: 16px 22px;
+      font-size: 16px;
+      border-radius: 14px;
+      background: #45a29e;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+
+    #startBtn:hover, #playPauseBtn:hover, #nextBtn:hover {
+      background: #ffffff;
+      color: #0b0c10;
+    }
+
+    #playPauseBtn, #nextBtn {
+      padding: 12px 20px;
+      font-size: 14px;
+    }
+
+    #nextBtn {
+      background: #1f2833;
+      border: 1px solid #ffffff;
+    }
+
+    #nextBtn:hover {
+      background: #ffffff;
+      color: #fff;
+    }
+
+    #nextBtn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    #nextBtn:disabled:hover {
+      background: #1f2833;
+      color: #c5c6c7;
+    }
+
+    .options {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .opt {
+      padding: 12px;
+      border-radius: 12px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.12);
+      cursor: pointer;
+      text-align: left;
+      color: #c5c6c7;
+      transition: all 0.2s;
+    }
+
+    .opt:hover { 
+      background: rgba(102, 252, 241, 0.1);
+      border-color: #45a29e;
+      color: #66fcf1;
+    }
+
+    .opt:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+
+    .opt.correct {
+      background: rgba(125, 255, 178, 0.15);
+      border-color: #7CFFB2;
+      color: #7CFFB2;
+    }
+
+    .opt.incorrect {
+      background: rgba(255, 124, 124, 0.15);
+      border-color: #FF7C7C;
+      color: #FF7C7C;
+    }
+
+    .status { 
+      margin-top: 12px; 
+      min-height: 22px;
+      color: #c5c6c7;
+    }
+    .ok { color: #7CFFB2; }
+    .bad { color: #FF7C7C; }
+
+    .pill {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      font-size: 13px;
+      margin-bottom: 8px;
+      display: inline-block;
+      color: #c5c6c7;
+    }
+
+    .pill.highlight {
+      background: rgba(102, 252, 241, 0.1);
+      border-color: #45a29e;
+      color: #66fcf1;
+    }
+
+    .controls {
+      margin-top: 14px;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .audioInfo {
+      font-size: 13px;
+      opacity: 0.6;
+      margin-top: 8px;
+      color: #c5c6c7;
+    }
+
+    .resetBtn {
+      padding: 8px 16px;
+      font-size: 13px;
+      border-radius: 8px;
+      background: rgba(255,124,124,0.2);
+      color: #FF7C7C;
+      border: 1px solid #FF7C7C;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s;
+      margin-top: 8px;
+      width: 100%;
+    }
+
+    .resetBtn:hover {
+      background: #FF7C7C;
+      color: #0b0c10;
+    }
+
+    .sessionInfo {
+      font-size: 12px;
+      opacity: 0.7;
+      margin-top: 12px;
+      padding: 8px;
+      background: rgba(255,255,255,.02);
+      border-radius: 8px;
+      color: #c5c6c7;
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="wrap">
+    <h1>Classical Listening Quiz</h1>
+    <div style="font-size:12px;opacity:.7;">
+      Shortcuts: <b>N</b> next question • <b>R</b> reveal • <b>Space</b> play/pause • <b>1–6</b> answer
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="row">
+    <section class="card">
+      <div class="videoBox">
+        <div id="player"></div>
+
+        <div id="startOverlay">
+          <button id="startBtn">▶ Start listening</button>
+          <div style="font-size:12px;opacity:.7;color:#c5c6c7;">Video title hidden for quiz mode</div>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button id="playPauseBtn">▶ Play</button>
+        <button id="nextBtn" disabled>Next Question →</button>
+        <div class="audioInfo" id="audioInfo">Audio only - title hidden</div>
+      </div>
+
+      <div class="options" id="options"></div>
+      <div class="status" id="status"></div>
+    </section>
+
+    <aside class="card">
+      <div class="pill" id="scorePill">Score: 0 / 0</div><br>
+      <div class="pill" id="streakPill">Streak: 0</div><br>
+      <div class="pill highlight" id="poolPill">Remaining: 0</div>
+      
+      <button class="resetBtn" id="resetBtn">🔄 Reset Question Pool</button>
+
+      <div class="sessionInfo" id="sessionInfo">
+        Session active<br>
+        Questions are removed after answering
+      </div>
+    </aside>
+  </div>
+</main>
+
+<script src="https://www.youtube.com/iframe_api"></script>
+
+<script type="module">
+  const $ = id => document.getElementById(id);
+
+  let ALL_PIECES = [];
+  let sessionPool = [];
+  let current = null;
+  let locked = false;
+  let total = 0;
+  let correct = 0;
+  let streak = 0;
+  let ytPlayer = null;
+
+  const optionsEl = $("options");
+  const statusEl = $("status");
+  const startOverlay = $("startOverlay");
+  const startBtn = $("startBtn");
+  const playPauseBtn = $("playPauseBtn");
+  const nextBtn = $("nextBtn");
+  const resetBtn = $("resetBtn");
+
+  const scorePill = $("scorePill");
+  const streakPill = $("streakPill");
+  const poolPill = $("poolPill");
+  const sessionInfo = $("sessionInfo");
+
+  function shuffle(arr) {
+    return arr.map(v => [Math.random(), v])
+              .sort((a,b) => a[0]-b[0])
+              .map(v => v[1]);
+  }
+
+  function extractVideoId(url) {
+    const u = new URL(url);
+    if (u.hostname.includes("youtu.be")) return u.pathname.slice(1);
+    return u.searchParams.get("v");
+  }
+
+  window.onYouTubeIframeAPIReady = function() {
+    // API ready - will create player when needed
+  };
+
+  function loadVideo(videoId, startSeconds = 0) {
+    if (ytPlayer) {
+      ytPlayer.destroy();
+    }
+
+    ytPlayer = new YT.Player('player', {
+      height: '100%',
+      width: '100%',
+      videoId: videoId,
+      playerVars: {
+        'autoplay': 0,
+        'controls': 0,
+        'modestbranding': 1,
+        'rel': 0,
+        'showinfo': 0,
+        'start': startSeconds || 0,
+        'iv_load_policy': 3,
+        'disablekb': 1
+      },
+      events: {
+        'onReady': onPlayerReady,
+        'onStateChange': onPlayerStateChange
+      }
+    });
+
+    startOverlay.style.display = "flex";
+    playPauseBtn.textContent = "▶ Play";
+  }
+
+  function onPlayerReady(event) {
+    // Player is ready
+  }
+
+  function onPlayerStateChange(event) {
+    if (event.data == YT.PlayerState.PLAYING) {
+      playPauseBtn.textContent = "⏸ Pause";
+    } else if (event.data == YT.PlayerState.PAUSED) {
+      playPauseBtn.textContent = "▶ Play";
+    } else if (event.data == YT.PlayerState.ENDED) {
+      playPauseBtn.textContent = "↻ Replay";
+    }
+  }
+
+  function togglePlayPause() {
+    if (!ytPlayer) return;
+    
+    const state = ytPlayer.getPlayerState();
+    if (state === YT.PlayerState.PLAYING) {
+      ytPlayer.pauseVideo();
+    } else {
+      ytPlayer.playVideo();
+    }
+  }
+
+  function updateUI() {
+    scorePill.textContent = `Score: ${correct} / ${total}`;
+    streakPill.textContent = `Streak: ${streak}`;
+    poolPill.textContent = `Remaining: ${sessionPool.length}`;
+
+    if (sessionPool.length === 0) {
+      sessionInfo.innerHTML = `
+        <b>Session complete! 🎉</b><br>
+        You've answered all questions.<br>
+        Click Reset to start over.
+      `;
+    } else {
+      sessionInfo.innerHTML = `
+        Session active<br>
+        Questions removed after answering
+      `;
+    }
+  }
+
+  function setStatus(msg, cls="") {
+    statusEl.className = `status ${cls}`;
+    statusEl.innerHTML = msg;
+  }
+
+  function renderOptions(opts, correctAnswer) {
+    optionsEl.innerHTML = "";
+    opts.forEach((opt, i) => {
+      const btn = document.createElement("button");
+      btn.className = "opt";
+      btn.textContent = `${i+1}. ${opt}`;
+      btn.onclick = () => guess(opt, correctAnswer, btn);
+      optionsEl.appendChild(btn);
+    });
+  }
+
+  function newQuestion() {
+    if (sessionPool.length === 0) {
+      setStatus("⚠️ No more questions in pool. Click Reset to start over.", "bad");
+      nextBtn.disabled = true;
+      return;
+    }
+
+    locked = false;
+    setStatus("");
+    nextBtn.disabled = true;
+
+    // Pick random question from session pool
+    const randomIndex = Math.floor(Math.random() * sessionPool.length);
+    current = sessionPool[randomIndex];
+    
+    const videoId = extractVideoId(current.url);
+    loadVideo(videoId, current.startSeconds || 0);
+
+    // Get 3 wrong answers from ALL pieces (not just session pool)
+    const answers = shuffle(
+      ALL_PIECES.map(p => p.answer).filter(a => a !== current.answer)
+    ).slice(0, 3);
+
+    const options = shuffle([current.answer, ...answers]);
+    renderOptions(options, current.answer);
+  }
+
+  function guess(choice, correctAnswer, clickedBtn) {
+    if (locked) return;
+    locked = true;
+    total++;
+
+    // Disable all buttons
+    const allBtns = optionsEl.querySelectorAll('.opt');
+    allBtns.forEach(btn => btn.disabled = true);
+
+    if (choice === correctAnswer) {
+      correct++;
+      streak++;
+      clickedBtn.classList.add('correct');
+      setStatus(`✅ <b>${correctAnswer}</b>`, "ok");
+    } else {
+      streak = 0;
+      clickedBtn.classList.add('incorrect');
+      
+      // Highlight the correct answer
+      allBtns.forEach(btn => {
+        if (btn.textContent.includes(correctAnswer)) {
+          btn.classList.add('correct');
+        }
+      });
+      
+      setStatus(`❌ Correct: <b>${correctAnswer}</b>`, "bad");
+    }
+
+    // Remove this question from the session pool
+    sessionPool = sessionPool.filter(p => p !== current);
+
+    updateUI();
+    nextBtn.disabled = false;
+  }
+
+  function resetPool() {
+    sessionPool = [...ALL_PIECES];
+    total = 0;
+    correct = 0;
+    streak = 0;
+    updateUI();
+    setStatus("✅ Question pool reset! Starting fresh session.", "ok");
+    setTimeout(() => {
+      newQuestion();
+    }, 800);
+  }
+
+  startBtn.onclick = () => {
+    startOverlay.style.display = "none";
+    if (ytPlayer) {
+      ytPlayer.playVideo();
+    }
+  };
+
+  playPauseBtn.onclick = togglePlayPause;
+  
+  nextBtn.onclick = () => {
+    newQuestion();
+  };
+
+  resetBtn.onclick = () => {
+    if (confirm('Reset the question pool? This will start a new session and reset your score.')) {
+      resetPool();
+    }
+  };
+
+  window.addEventListener("keydown", e => {
+    if (e.key.toLowerCase() === "n") {
+      if (!nextBtn.disabled) {
+        newQuestion();
+      }
+    }
+    if (e.key.toLowerCase() === "r" && current) {
+      setStatus(`ℹ️ <b>${current.answer}</b>`);
+    }
+    if (e.key === " ") {
+      e.preventDefault();
+      togglePlayPause();
+    }
+    if (!locked && current && /^[1-6]$/.test(e.key)) {
+      const btn = optionsEl.children[e.key - 1];
+      if (btn) btn.click();
+    }
+  });
+
+  async function init() {
+    const res = await fetch("./pieces.json");
+    ALL_PIECES = await res.json();
+    sessionPool = [...ALL_PIECES];
+    updateUI();
+    
+    // Wait for YouTube API to load
+    const checkAPI = setInterval(() => {
+      if (window.YT && window.YT.Player) {
+        clearInterval(checkAPI);
+        newQuestion();
+      }
+    }, 100);
+  }
+
+  init();
+</script>
+</body>
+</html>

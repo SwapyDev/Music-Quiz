@@ -1,0 +1,421 @@
+[
+    {
+      "difficulty": "romantic",
+      "composer": "Schubert",
+      "work": "Erlkönig (The Erlking, 마왕)",
+      "answer": "Schubert — Erlkönig (The Erlking, 마왕)",
+      "url": "https://youtu.be/JS91p-vmSf0?si=rrO4kgNvBSHCNcKM"
+    },
+    {
+      "difficulty": "romantic",
+      "composer": "Schumann",
+      "work": "Widmung (Dedication, 헌정)",
+      "answer": "Schumann — Widmung (Dedication, 헌정)",
+      "url": "https://youtu.be/UXDz0aByZVc?si=lYV30_7MVEG84A5_"
+    },
+    {
+      "difficulty": "romantic",
+      "composer": "Schumann",
+      "work": "Träumerei (Dreaming, 꿈)",
+      "answer": "Schumann — Träumerei (Dreaming, 꿈)",
+      "url": "https://youtu.be/6z82w0l6kwE?si=8-w8t43qNT58pEx9"
+    },
+    {
+      "difficulty": "romantic",
+      "composer": "Mendelssohn",
+      "work": "Songs without Words",
+      "answer": "Mendelssohn — Songs without Words",
+      "url": "https://youtu.be/Nuq_gGVTg2I?si=ALo_HsGlvupm6yUg"
+    },
+    {
+      "difficulty": "romantic",
+      "composer": "Mendelssohn",
+      "work": "Violin Concerto in E minor — I",
+      "answer": "Mendelssohn — Violin Concerto in E minor (I)",
+      "url": "https://youtu.be/SDwKJ6bBXEA?si=sOn_Gf6DduE7_C9S"
+    },
+    {
+      "difficulty": "romantic",
+      "composer": "Paganini",
+      "work": "Caprice No. 24",
+      "answer": "Paganini — Caprice No. 24",
+      "url": "https://youtu.be/loOuh543gaY?si=vL_WNxEE7qS0YecM"
+    },
+    {
+      "difficulty": "romantic",
+      "composer": "Rossini",
+      "work": "William Tell — Overture (Finale)",
+      "answer": "Rossini — William Tell Overture (Finale)",
+      "url": "https://youtu.be/c7O91GDWGPU?si=wwxoKehQDVZSwb0F"
+    },
+    {
+      "difficulty": "romantic",
+      "composer": "Chopin",
+      "work": "Nocturne Op. 9 No. 2",
+      "answer": "Chopin — Nocturne Op. 9 No. 2",
+      "startSeconds": 23,
+      "url": "https://youtu.be/8YQJWHCenJU?si=8t5VMLCQyiSg3Yv8"
+    },
+    {
+      "difficulty": "romantic",
+      "composer": "Chopin",
+      "work": "Polonaise in A-flat major, Op. 53 “Heroic”",
+      "answer": "Chopin — Polonaise in A-flat major, Op. 53 “Heroic”",
+      "url": "https://youtu.be/d3IKMiv8AHw?si=Mrix2Kd9r8pzTzN8"
+    },
+    {
+      "difficulty": "romantic",
+      "composer": "Liszt",
+      "work": "La Campanella (Paganini Etude No. 3)",
+      "answer": "Liszt — La Campanella (Paganini Etude No. 3)",
+      "url": "https://youtu.be/M0U73NRSIkw?si=oR8XxjqGybk2YVXu"
+    },
+    {
+      "difficulty": "romantic",
+      "composer": "Liszt",
+      "work": "Transcendental Etude No. 4 “Mazeppa”",
+      "answer": "Liszt — Transcendental Etude No. 4 “Mazeppa”",
+      "url": "https://youtu.be/Uk6qyGFYJ9M?si=v_Gw48RQ3V5ZRYQN"
+    },
+    {
+      "difficulty": "romantic",
+      "composer": "Liszt",
+      "work": "Paganini Etude No. 6",
+      "answer": "Liszt — Paganini Etude No. 6",
+      "url": "https://youtu.be/rQndTrMpkz8?si=Uh5-ojY4NbAr1rNI"
+    },
+    {
+      "difficulty": "romantic",
+      "composer": "Berlioz",
+      "work": "Symphonie Fantastique — IV",
+      "answer": "Berlioz — Symphonie Fantastique (IV)",
+      "url": "https://youtu.be/roX70PAu3oA?si=iMRL0guNH2As9sFo"
+    },
+    {
+      "difficulty": "romantic",
+      "composer": "Brahms",
+      "work": "Symphony No. 3 — III",
+      "answer": "Brahms — Symphony No. 3 (III)",
+      "url": "https://youtu.be/2tB2SLLnPZg?si=ZCL0RPrhIysPY4ef"
+    },
+    {
+      "difficulty": "romantic",
+      "composer": "Brahms",
+      "work": "Hungarian Dance No. 5",
+      "answer": "Brahms — Hungarian Dance No. 5",
+      "url": "https://youtu.be/Nzo3atXtm54?si=l9aT001cU7CxTv6C"
+    },
+    {
+      "difficulty": "romantic",
+      "composer": "Saint-Saëns",
+      "work": "The Carnival of the Animals — The Swan",
+      "answer": "Saint-Saëns — Carnival of the Animals: The Swan",
+      "url": "https://youtu.be/Wpk7Kx4dt-U?si=SAVCziuzVfvxoC0c"
+    },
+    {
+      "difficulty": "romantic",
+      "composer": "Saint-Saëns",
+      "work": "The Carnival of the Animals — Tortoises",
+      "answer": "Saint-Saëns — Carnival of the Animals: Tortoises",
+      "url": "https://youtu.be/DfNgNTBDNUs?si=eIUTEpxaJeZnK6aU"
+    },
+    {
+      "difficulty": "romantic",
+      "composer": "Offenbach",
+      "work": "Orpheus in the Underworld — Overture",
+      "answer": "Offenbach — Orpheus in the Underworld: Overture",
+      "startSeconds": 420,
+      "url": "https://youtu.be/vEnW5_GTooI?si=I8oZVyWc2UvIS5YV"
+    },
+    {
+      "difficulty": "romantic",
+      "composer": "Saint-Saëns",
+      "work": "The Carnival of the Animals — Aquarium",
+      "answer": "Saint-Saëns — Carnival of the Animals: Aquarium",
+      "url": "https://youtu.be/a4lmvXYRfa4?si=Oe564Z2d07GYCXBU"
+    },
+    {
+      "difficulty": "romantic",
+      "composer": "Bizet",
+      "work": "Carmen — Toreador (The Bullfighter’s aria, 투우사의 노래)",
+      "answer": "Bizet — Carmen: Toreador (투우사의 노래)",
+      "url": "https://youtu.be/CoV2YOjFowY?si=1hn9ZSaTF8FSEqpH"
+    },
+    {
+      "difficulty": "romantic",
+      "composer": "Bizet",
+      "work": "Carmen — Gypsy",
+      "answer": "Bizet — Carmen: Gypsy",
+      "url": "https://youtu.be/JvjjoZFt26I?si=ctEsFvUoog-GVmJq"
+    },
+    {
+      "difficulty": "romantic",
+      "composer": "Leoncavallo",
+      "work": "Pagliacci — Vesti la giubba (Put on the Costume, 의상을 입어라)",
+      "answer": "Leoncavallo — Pagliacci: Vesti la giubba (의상을 입어라)",
+      "url": "https://youtu.be/Z0PMq4XGtZ4?si=aFEuc-piN-N1R0V7"
+    },
+    {
+      "difficulty": "romantic",
+      "composer": "Mascagni",
+      "work": "Cavalleria Rusticana — Intermezzo",
+      "answer": "Mascagni — Cavalleria Rusticana: Intermezzo",
+      "url": "https://youtu.be/3N4uXfnH2aA?si=k7giCipOJcc4WQaM"
+    },
+    {
+      "difficulty": "romantic",
+      "composer": "Verdi",
+      "work": "Requiem — Dies Irae",
+      "answer": "Verdi — Requiem: Dies Irae",
+      "url": "https://youtu.be/ZcA-KuvHeVE?si=ugrD-QJ-ZwbaKbcc"
+    },
+    {
+      "difficulty": "romantic",
+      "composer": "Verdi",
+      "work": "Rigoletto — La donna è mobile (Woman is fickle, 여자의 마음)",
+      "answer": "Verdi — Rigoletto: La donna è mobile (여자의 마음)",
+      "url": "https://youtu.be/8A3zetSuYRg?si=DJw9514L78M1Manz"
+    },
+    {
+      "difficulty": "romantic",
+      "composer": "Puccini",
+      "work": "Turandot — Nessun dorma (No One Shall Sleep, 아무도 잠들지 말라)",
+      "answer": "Puccini — Turandot: Nessun dorma (아무도 잠들지 말라)",
+      "url": "https://youtu.be/M3ecaM5UjAA?si=RpRx03TwklH5_XkI"
+    },
+    {
+      "difficulty": "romantic",
+      "composer": "Puccini",
+      "work": "Gianni Schicchi — O mio babbino caro (Oh, My Dearest Papa, 사랑하는 나의 아버지)",
+      "answer": "Puccini — Gianni Schicchi: O mio babbino caro (사랑하는 나의 아버지)",
+      "url": "https://youtu.be/OrqYQoAIj_0?si=gxmQd9BmRw23uaI3"
+    },
+    {
+      "difficulty": "romantic",
+      "composer": "Dvořák",
+      "work": "Symphony No. 9 “From the New World” — IV",
+      "answer": "Dvořák — Symphony No. 9 “From the New World” (IV)",
+      "url": "https://youtu.be/89jOPAGJq-M?si=tiU5MUihec9TWaG5"
+    },
+    {
+      "difficulty": "romantic",
+      "composer": "Grieg",
+      "work": "Piano Concerto in A minor — I",
+      "answer": "Grieg — Piano Concerto in A minor (I)",
+      "url": "https://youtu.be/I1Yoyz6_Los?si=qJJ9Jr8GjuOwTPI_"
+    },
+    {
+      "difficulty": "romantic",
+      "composer": "Grieg",
+      "work": "Peer Gynt — Morning Mood",
+      "answer": "Grieg — Peer Gynt: Morning Mood",
+      "url": "https://youtu.be/Gf39OSAa6xc?si=AMNQTjvhhn20RjzU"
+    },
+    {
+      "difficulty": "romantic",
+      "composer": "Sibelius",
+      "work": "Violin Concerto in D minor — III",
+      "answer": "Sibelius — Violin Concerto in D minor (III)",
+      "startSeconds": 1510,
+      "url": "https://youtu.be/gpS_u5RvMpM?si=AtCbiggX7CRPMbfW"
+    },
+    {
+      "difficulty": "romantic",
+      "composer": "Rimsky-Korsakov",
+      "work": "Flight of the Bumblebee",
+      "answer": "Rimsky-Korsakov — Flight of the Bumblebee",
+      "url": "https://youtu.be/MW8asBxO4oI?si=Na6G0pe-RAugbdeQ"
+    },
+    {
+      "difficulty": "romantic",
+      "composer": "Mussorgsky",
+      "work": "Pictures at an Exhibition — Baba Yaga; Great Gate of Kiev",
+      "answer": "Mussorgsky — Pictures at an Exhibition: Baba Yaga / Great Gate of Kiev",
+      "startSeconds": 200,
+      "url": "https://youtu.be/kZkoW1Ta3ew?si=BEmrf4cJaKh57MmA"
+    },
+    {
+      "difficulty": "romantic",
+      "composer": "Tchaikovsky",
+      "work": "Piano Concerto No. 1 — I",
+      "answer": "Tchaikovsky — Piano Concerto No. 1 (I)",
+      "url": "https://youtu.be/ItSJ_woWnmk?si=fKRRMyIQkYO0oQA4"
+    },
+    {
+      "difficulty": "romantic",
+      "composer": "Tchaikovsky",
+      "work": "Symphony No. 6 “Pathétique” — I",
+      "answer": "Tchaikovsky — Symphony No. 6 “Pathétique” (I)",
+      "startSeconds": 290,
+      "url": "https://www.youtube.com/watch?v=oEW0cXVoGo0"
+    },
+    {
+      "difficulty": "romantic",
+      "composer": "Tchaikovsky",
+      "work": "The Nutcracker — Waltz of the Flowers",
+      "answer": "Tchaikovsky — The Nutcracker: Waltz of the Flowers",
+      "url": "https://youtu.be/LKcZL8q1eBw?si=s15yZ_hlN5YlKi5x"
+    },
+    {
+      "difficulty": "romantic",
+      "composer": "Rachmaninoff",
+      "work": "Symphony No. 2 — III",
+      "answer": "Rachmaninoff — Symphony No. 2 (III)",
+      "url": "https://youtu.be/21MHVIcg1HY?si=C8j_YwlyvjZMBL1_"
+    },
+    {
+      "difficulty": "romantic",
+      "composer": "Rachmaninoff",
+      "work": "Piano Concerto No. 3 — III (Finale)",
+      "answer": "Rachmaninoff — Piano Concerto No. 3 (III Finale)",
+      "startSeconds": 2340,
+      "url": "https://youtu.be/DPJL488cfRw?feature=shared"
+    },
+    {
+      "difficulty": "romantic",
+      "composer": "Rachmaninoff",
+      "work": "Rhapsody on a Theme of Paganini — Theme + Variation 18",
+      "answer": "Rachmaninoff — Rhapsody on a Theme of Paganini: Theme + Var. 18",
+      "startSeconds": 980,
+      "url": "https://youtu.be/3vaJ91DuDww?si=bKci5YQ-b0VdzW_-"
+    },
+    {
+      "difficulty": "romantic",
+      "composer": "Wagner",
+      "work": "Die Walküre — Ride of the Valkyries",
+      "answer": "Wagner — Die Walküre: Ride of the Valkyries",
+      "startSeconds": 30,
+      "url": "https://youtu.be/xeRwBiu4wfQ?si=w6HqqS9NQkiaLids"
+    },
+    {
+      "difficulty": "romantic",
+      "composer": "Wagner",
+      "work": "Lohengrin — Bridal Chorus",
+      "answer": "Wagner — Lohengrin: Bridal Chorus",
+      "startSeconds": 200,
+      "url": "https://youtu.be/J2lX86w-pT4?si=M3Y8t_5-ACM_v63T"
+    },
+    {
+      "difficulty": "romantic",
+      "composer": "Mahler",
+      "work": "Symphony No. 5 — IV",
+      "answer": "Mahler — Symphony No. 5 (IV)",
+      "url": "https://youtu.be/Bj6KLv7kv2Q?si=O2OxPh6iMDGnY_zh"
+    },
+    {
+      "difficulty": "romantic",
+      "composer": "Richard Strauss",
+      "work": "Also sprach Zarathustra (Thus Spoke Zarathustra, 자라투스트라는 이렇게 말했다)",
+      "answer": "Richard Strauss — Also sprach Zarathustra (자라투스트라는 이렇게 말했다)",
+      "url": "https://youtu.be/GfwAPg4rQQE?feature=shared"
+    },
+    {
+      "difficulty": "romantic",
+      "composer": "Johann Strauss",
+      "work": "Radetzky March",
+      "answer": "Johann Strauss — Radetzky March",
+      "url": "https://youtu.be/xhEGMSOIptw?si=cQ8yYVaOWTV7MxmR"
+    },
+    {
+      "difficulty": "romantic",
+      "composer": "Johann Strauss II",
+      "work": "Frühlingsstimmen Waltz (Voices of Spring Waltz, 봄의 소리 왈츠)",
+      "answer": "Johann Strauss II — Frühlingsstimmen Waltz (봄의 소리 왈츠)",
+      "url": "https://youtu.be/TF0XSkb7TyM?si=zkcbhGx8CPU13siI"
+    },
+    {
+      "difficulty": "romantic",
+      "composer": "Elgar",
+      "work": "Salut d’amour (Greeting of Love, 사랑의 인사)",
+      "answer": "Elgar — Salut d’amour (사랑의 인사)",
+      "url": "https://youtu.be/ysG2AiEFeRw?si=YCKksDGuFiJ-Wb3C"
+    },
+    {
+      "difficulty": "romantic",
+      "composer": "Tárrega",
+      "work": "Recuerdos de la Alhambra (The Memories of Alhambra, 알람브라 궁전의 추억)",
+      "answer": "Tárrega — Recuerdos de la Alhambra (알람브라 궁전의 추억)",
+      "url": "https://youtu.be/EQGBbLBShzk?si=KFBsCP6JCQLzIgw_"
+    },
+    {
+      "difficulty": "modern",
+      "composer": "Debussy",
+      "work": "Clair de lune (Moonlight, 달빛)",
+      "answer": "Debussy — Clair de lune (달빛)",
+      "url": "https://youtu.be/U3u4pQ4WKOk?si=WK6Gcs5bG1UoRLW1"
+    },
+    {
+      "difficulty": "modern",
+      "composer": "Debussy",
+      "work": "Prélude à l’après-midi d’un faune (Prelude to the Afternoon of a Faun, 목신의 오후 전주곡)",
+      "answer": "Debussy — Prelude to the Afternoon of a Faun (목신의 오후 전주곡)",
+      "url": "https://youtu.be/9_7loz-HWUM?si=M0KRL-8uRxBWJxX4"
+    },
+    {
+      "difficulty": "modern",
+      "composer": "Ravel",
+      "work": "Boléro",
+      "answer": "Ravel — Boléro",
+      "url": "https://youtu.be/dovA8PuWGLU?si=_FlYYQbSc-qKx4ck"
+    },
+    {
+      "difficulty": "modern",
+      "composer": "Ravel",
+      "work": "Jeux d’eau (Playing Water, 물의 유희)",
+      "answer": "Ravel — Jeux d’eau (물의 유희)",
+      "url": "https://youtu.be/C5kufJw5n3U?si=2nrob-3eaeQ8Aera"
+    },
+    {
+      "difficulty": "modern",
+      "composer": "Stravinsky",
+      "work": "The Rite of Spring",
+      "answer": "Stravinsky — The Rite of Spring",
+      "url": "https://youtu.be/sPpq44uEyXo?feature=shared"
+    },
+    {
+      "difficulty": "modern",
+      "composer": "Prokofiev",
+      "work": "Romeo and Juliet",
+      "answer": "Prokofiev — Romeo and Juliet",
+      "url": "https://youtu.be/SyDo3h1Tu7c?si=9DBfUroIjznsXVI4"
+    },
+    {
+      "difficulty": "modern",
+      "composer": "Bartók",
+      "work": "Romanian Folk Dances",
+      "answer": "Bartók — Romanian Folk Dances",
+      "startSeconds": 340,
+      "url": "https://youtu.be/Z50Ooqv1GFg?si=fAPEXl4v9PYyj_LO"
+    },
+    {
+      "difficulty": "modern",
+      "composer": "Gershwin",
+      "work": "Rhapsody in Blue",
+      "answer": "Gershwin — Rhapsody in Blue",
+      "startSeconds": 30,
+      "url": "https://youtu.be/cH2PH0auTUU?si=wM_K6FPtYzAgjQuR"
+    },
+    {
+      "difficulty": "modern",
+      "composer": "Gershwin",
+      "work": "Porgy and Bess — Summertime",
+      "answer": "Gershwin — Porgy and Bess: Summertime",
+      "url": "https://youtu.be/RyadsHUBpWc?si=xxKA09h413zwZQH1"
+    },
+    {
+      "difficulty": "modern",
+      "composer": "Shostakovich",
+      "work": "Waltz No. 2",
+      "answer": "Shostakovich — Waltz No. 2",
+      "url": "https://youtu.be/mmCnQDUSO4I?si=dyNxSa4oa8OMel4p"
+    },
+    {
+      "difficulty": "modern",
+      "composer": "Piazzolla",
+      "work": "Libertango",
+      "answer": "Piazzolla — Libertango",
+      "startSeconds": 90,
+      "url": "https://youtu.be/t83XjF04r80?si=1_podGTr8-MIOQF-"
+    }
+  ]
+  
